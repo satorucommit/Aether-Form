@@ -1,0 +1,213 @@
+/* Asymmetric Bento Grid CSS Structure */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  gap: 1.5rem;
+  padding: 4rem 0;
+  position: relative;
+  z-index: 5;
+}
+
+/* Bento Card Base Styling */
+.bento-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--bg-grid-line);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.4s var(--ease-out-quint), background-color 0.4s var(--ease-out-quint);
+}
+
+.bento-card:hover {
+  border-color: rgba(244, 244, 244, 0.2);
+  background-color: #17171a;
+}
+
+/* Specific Grid Layout Spanning */
+.col-12 { grid-column: span 12; }
+.col-8  { grid-column: span 8; }
+.col-6  { grid-column: span 6; }
+.col-4  { grid-column: span 4; }
+.col-3  { grid-column: span 3; }
+
+.row-2  { grid-row: span 2; }
+.row-3  { grid-row: span 3; }
+
+.hero-anchor {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 480px;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.hero-anchor:hover {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.hero-anchor h1 {
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  line-height: 0.9;
+  margin-bottom: 2rem;
+}
+
+.hero-anchor .metadata-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--bg-grid-line);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Portfolio Card Design with Hover Media Distortions */
+.portfolio-card {
+  padding: 0;
+  cursor: none;
+}
+
+.portfolio-media {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.portfolio-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.8s var(--ease-out-quint);
+  opacity: 0.85;
+}
+
+.portfolio-card:hover .portfolio-media img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Canvas container for custom fragment shader mouse ripples */
+.hover-distortion-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.portfolio-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to top, rgba(11, 11, 12, 0.9) 0%, rgba(11, 11, 12, 0.2) 60%, rgba(11, 11, 12, 0) 100%);
+  pointer-events: none; /* Let cursor pass to parent for coordinates mapping */
+}
+
+/* Floating status or tag */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(20, 20, 22, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(244, 244, 244, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  width: fit-content;
+  color: var(--accent-primary);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-flash);
+  box-shadow: 0 0 8px var(--accent-flash);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .col-8, .col-4, .col-3 {
+    grid-column: span 6;
+  }
+  .col-6 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .col-12, .col-8, .col-6, .col-4, .col-3 {
+    grid-column: span 1;
+  }
+  .row-2, .row-3 {
+    grid-row: span 1;
+  }
+  .hero-anchor {
+    min-height: 380px;
+  }
+  .hero-anchor h1 {
+    font-size: 2.8rem;
+  }
+  .bento-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Infinite Marquee Ticker CSS */
+.marquee-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+  padding: 1.5rem 0;
+  background-color: var(--bg-surface);
+}
+
+.marquee-content {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-scroll 24s linear infinite;
+  padding-left: 2rem;
+  will-change: transform;
+}
+
+.marquee-content span {
+  display: inline-block;
+  padding-right: 4rem;
+  flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

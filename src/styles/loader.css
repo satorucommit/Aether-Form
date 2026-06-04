@@ -1,0 +1,115 @@
+/* Preloader CSS Transition Container */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem;
+  overflow: hidden;
+}
+
+.loader-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.loader-brand {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.loader-spec {
+  text-align: right;
+}
+
+.loader-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  position: relative;
+}
+
+.loader-progress-wrap {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.loader-bar-bg {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(244, 244, 244, 0.1);
+  position: relative;
+}
+
+.loader-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent-flash);
+}
+
+.loader-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.loader-number {
+  font-size: clamp(8rem, 18vw, 22rem);
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.75;
+  letter-spacing: -0.05em;
+  color: var(--accent-primary);
+}
+
+.loader-msg {
+  max-width: 300px;
+  text-align: right;
+  line-height: 1.4;
+}
+
+/* Curtain background wipes */
+.transition-curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--accent-flash);
+  z-index: 9998;
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  #preloader {
+    padding: 2rem;
+  }
+  .loader-brand {
+    font-size: 1.2rem;
+  }
+  .loader-number {
+    font-size: 5rem;
+  }
+  .loader-msg {
+    max-width: 180px;
+    font-size: 0.8rem;
+  }
+}

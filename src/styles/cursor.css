@@ -1,0 +1,80 @@
+/* Custom Fluid Cursor CSS */
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  margin: -25px 0 0 -25px; /* Offset to center */
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference; /* Invert colors based on backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  position: absolute;
+  transition: transform 0.1s var(--ease-out-quint);
+}
+
+.cursor-ring {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-origin: center;
+  transition: transform 0.3s var(--ease-out-quint), width 0.3s var(--ease-out-quint), height 0.3s var(--ease-out-quint);
+}
+
+.cursor-ring circle {
+  cx: 50px;
+  cy: 50px;
+  r: 22px;
+  fill: none;
+  stroke: var(--accent-primary);
+  stroke-width: 1px;
+  transform-origin: center;
+  transition: stroke-dasharray 0.3s var(--ease-out-quint);
+}
+
+/* Snap active state */
+.custom-cursor.magnetic-active .cursor-ring {
+  width: 60px;
+  height: 60px;
+}
+
+.custom-cursor.magnetic-active .cursor-ring circle {
+  stroke: var(--accent-flash);
+  stroke-width: 2px;
+}
+
+.custom-cursor.magnetic-active .cursor-dot {
+  transform: scale(0);
+}
+
+/* Hover expansion state for standard clickable elements */
+.custom-cursor.hover-active .cursor-ring {
+  transform: scale(1.6);
+}
+
+.custom-cursor.hover-active .cursor-dot {
+  transform: scale(2.0);
+  background-color: var(--accent-flash);
+}
+
+@media (pointer: coarse) {
+  /* Disable custom cursor on mobile devices */
+  .custom-cursor {
+    display: none;
+  }
+  body, a, button, [role="button"] {
+    cursor: auto !important;
+  }
+}

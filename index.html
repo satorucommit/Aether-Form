@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aether & Form — Immersive Digital Space</title>
+  <meta name="description" content="A high-end, immersive digital exhibition space and design studio portfolio exploring math, motion, and form.">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>Æ</text></svg>">
+</head>
+<body>
+  <!-- Custom Fluid Magnetic Ring Cursor -->
+  <div class="custom-cursor" id="custom-cursor">
+    <div class="cursor-dot"></div>
+    <svg class="cursor-ring" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="45"></circle>
+    </svg>
+  </div>
+
+  <!-- Intro Preloader Panel -->
+  <div id="preloader">
+    <div class="loader-top">
+      <div class="loader-brand font-display">AETHER & FORM</div>
+      <div class="loader-spec font-mono">SYS.VER // 2.0.26<br>LOC // 54.9° N, 1.6° W</div>
+    </div>
+    <div class="loader-middle">
+      <div class="loader-progress-wrap">
+        <div class="loader-bar-bg">
+          <div class="loader-bar-fill" id="loader-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+    <div class="loader-bottom">
+      <div class="loader-number" id="loader-number">00</div>
+      <div class="loader-msg font-body">INERTIAL CALCULATIONS IN PROGRESS. SYNCHRONIZING CORE METRIC SPACES...</div>
+    </div>
+  </div>
+
+  <!-- Background Canvas for Ambient Noise Stars / Hero 3D Shape -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Locomotive Smooth Scroller Wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content" data-scroll-container>
+      
+      <!-- Main Content Grid -->
+      <main class="container" data-scroll-section>
+        
+        <!-- Header Grid Nav -->
+        <header class="bento-grid" style="grid-auto-rows: auto; padding: 2rem 0 0 0;">
+          <div class="col-12 bento-card" style="flex-direction: row; padding: 1.5rem; justify-content: space-between; align-items: center; min-height: auto;">
+            <div class="font-display" style="font-size: 1.2rem; letter-spacing: -0.02em;">AETHER & FORM</div>
+            <nav style="display: flex; gap: 2rem;" class="font-mono">
+              <a href="#work" class="interactive-hover" data-magnetic>WORK</a>
+              <a href="#about" class="interactive-hover" data-magnetic>PHILOSOPHY</a>
+              <a href="#contact" class="interactive-hover" data-magnetic>CONTACT</a>
+            </nav>
+          </div>
+        </header>
+
+        <!-- Asymmetric Bento Grid Exhibition -->
+        <section class="bento-grid" id="work">
+          
+          <!-- Column 8 (Hero Title) -->
+          <div class="bento-card col-8 row-2 hero-anchor">
+            <div class="badge font-mono">
+              <span class="badge-dot"></span>
+              EXHIBITION OPEN
+            </div>
+            <h1 class="font-display split-title">Aether<br>& Form</h1>
+            <div class="metadata-row font-mono">
+              <div>CONCEPT MODEL v1.0.0</div>
+              <div>DATE: MAY 2026</div>
+              <div>MATHEMATICAL DEVIANCE</div>
+            </div>
+          </div>
+
+          <!-- Column 4 (Digital Coordinates / Spec Box) -->
+          <div class="bento-card col-4 font-mono" style="justify-content: flex-start; gap: 1.5rem;">
+            <div style="font-size: 0.8rem; opacity: 0.5;">01 // CURRENT_COORDINATES</div>
+            <div style="font-size: 2.2rem; font-weight: bold; line-height: 1.1; letter-spacing: -0.02em; color: var(--accent-flash);">
+              45.109° N<br>
+              -9.231° W
+            </div>
+            <div style="border-top: 1px solid var(--bg-grid-line); padding-top: 1rem; font-size: 0.75rem; line-height: 1.6; text-transform: none;">
+              An immersive design landscape intersecting mathematical equations with fluid physical meshes. Powered by custom vertex displacements and noise vectors.
+            </div>
+          </div>
+
+          <!-- Column 4 (System Stats Panel) -->
+          <div class="bento-card col-4 font-mono" style="justify-content: flex-start; gap: 1.5rem;">
+            <div style="font-size: 0.8rem; opacity: 0.5;">02 // COMPUTE_LATENCY</div>
+            <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+              <span style="font-size: 3rem; font-weight: bold; line-height: 1; color: var(--accent-primary);" id="fps-counter">60</span>
+              <span style="font-size: 1rem; opacity: 0.5;">FPS</span>
+            </div>
+            <div style="border-top: 1px solid var(--bg-grid-line); padding-top: 1rem; font-size: 0.75rem; line-height: 1.6;">
+              STARFIELD PARTICLES: 5,000<br>
+              COMPUTE SHADER: GLSL ES 3.0<br>
+              GEOMETRY RES: 64x64x64 ICOSAHEDRON
+            </div>
+          </div>
+
+          <!-- Column 6 (Portfolio Card 1 - Aether Exhibition) -->
+          <a href="#project-aether" class="bento-card col-6 row-2 portfolio-card" id="card-aether">
+            <div class="portfolio-media">
+              <img src="/aether_exhibition.png" alt="Aether Exhibition Preview">
+              <canvas class="hover-distortion-canvas"></canvas>
+            </div>
+            <div class="portfolio-content">
+              <div class="badge font-mono">CASE 01</div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
+                <h3 class="font-display" style="font-size: 2rem; text-transform: uppercase;">AETHER<br>MESH</h3>
+                <span class="font-mono" style="font-size: 0.8rem;">[ VIEW ]</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Column 6 (Portfolio Card 2 - Chroma Refraction) -->
+          <a href="#project-chroma" class="bento-card col-6 row-2 portfolio-card" id="card-chroma">
+            <div class="portfolio-media">
+              <img src="/chroma_refraction.png" alt="Chroma Refraction Preview">
+              <canvas class="hover-distortion-canvas"></canvas>
+            </div>
+            <div class="portfolio-content">
+              <div class="badge font-mono">CASE 02</div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
+                <h3 class="font-display" style="font-size: 2rem; text-transform: uppercase;">CHROMA<br>PRISM</h3>
+                <span class="font-mono" style="font-size: 0.8rem;">[ VIEW ]</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Column 8 (Philosophy Statement) -->
+          <div class="bento-card col-8 font-body" style="justify-content: center; gap: 2rem; min-height: 300px;" id="about">
+            <div class="font-mono" style="font-size: 0.8rem; opacity: 0.5;">03 // STUDIO_PHILOSOPHY</div>
+            <p style="font-size: 1.8rem; line-height: 1.4; color: var(--accent-primary); letter-spacing: -0.01em;">
+              We believe the digital canvas should not be a static layout, but an <span style="color: var(--accent-flash); font-weight: bold;">active kinetic space</span>. One where code behaves with gravity, friction, and fluid mathematical grace.
+            </p>
+          </div>
+
+          <!-- Column 4 (Micro Contact Grid) -->
+          <div class="bento-card col-4 font-mono" style="justify-content: space-between;" id="contact">
+            <div style="font-size: 0.8rem; opacity: 0.5;">04 // DIRECT_PORTAL</div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 1.1rem; font-weight: 500;">
+              <a href="mailto:studio@aetherform.xyz" class="interactive-hover" data-magnetic>EMAIL PORTAL</a>
+              <a href="#github" class="interactive-hover" data-magnetic>REPOSITORIES</a>
+              <a href="#twitter" class="interactive-hover" data-magnetic>KINETIC WIRE</a>
+            </div>
+            <div style="font-size: 0.7rem; opacity: 0.4;">EST. 2026 // ALL SYSTEM PROTOCOLS SECURED.</div>
+          </div>
+
+        </section>
+
+        <!-- Section 2: Laboratory / Mathematical Experiments -->
+        <section class="bento-grid" style="margin-top: -2rem;">
+          
+          <!-- Column 4 (Lab Item 1) -->
+          <div class="bento-card col-4 font-mono" style="justify-content: flex-start; gap: 1rem;">
+            <div style="font-size: 0.8rem; opacity: 0.5;">05 // LAB_EXPERIMENT_01</div>
+            <div class="font-display" style="font-size: 1.5rem; letter-spacing: -0.01em;">Simplex Wave</div>
+            <p style="font-size: 0.75rem; text-transform: none; line-height: 1.6; opacity: 0.8; margin-top: 1rem;">
+              Evaluating dynamic vertex shaders using GLSL simplex noise offsets in 3D coordinate space. Intersecting with mouse proximity variables.
+            </p>
+            <div style="border-top: 1px solid var(--bg-grid-line); padding-top: 1rem; font-size: 0.7rem; color: var(--accent-flash); margin-top: auto;">
+              STATUS // ACTIVE COMPILING
+            </div>
+          </div>
+
+          <!-- Column 4 (Lab Item 2) -->
+          <div class="bento-card col-4 font-mono" style="justify-content: flex-start; gap: 1rem;">
+            <div style="font-size: 0.8rem; opacity: 0.5;">06 // LAB_EXPERIMENT_02</div>
+            <div class="font-display" style="font-size: 1.5rem; letter-spacing: -0.01em;">RGB Dispersion</div>
+            <p style="font-size: 0.75rem; text-transform: none; line-height: 1.6; opacity: 0.8; margin-top: 1rem;">
+              Splitting rendering pipelines across three discrete color channels. Calculated dynamically based on camera projection matrices.
+            </p>
+            <div style="border-top: 1px solid var(--bg-grid-line); padding-top: 1rem; font-size: 0.7rem; color: var(--accent-flash); margin-top: auto;">
+              STATUS // STABLE DRIFT
+            </div>
+          </div>
+
+          <!-- Column 4 (Lab Item 3) -->
+          <div class="bento-card col-4 font-mono" style="justify-content: flex-start; gap: 1rem;">
+            <div style="font-size: 0.8rem; opacity: 0.5;">07 // LAB_EXPERIMENT_03</div>
+            <div class="font-display" style="font-size: 1.5rem; letter-spacing: -0.01em;">Inertial Bounds</div>
+            <p style="font-size: 0.75rem; text-transform: none; line-height: 1.6; opacity: 0.8; margin-top: 1rem;">
+              Measuring scroll drag momentum and calculating viewport displacement. Synchronized with GSAP animation triggers.
+            </p>
+            <div style="border-top: 1px solid var(--bg-grid-line); padding-top: 1rem; font-size: 0.7rem; color: var(--accent-flash); margin-top: auto;">
+              STATUS // CALIBRATED
+            </div>
+          </div>
+
+          <!-- Column 12 (Logos / Ticker Client Board) -->
+          <div class="bento-card col-12 font-mono" style="flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; padding: 2rem 2.5rem; min-height: auto;">
+            <div style="opacity: 0.3; font-size: 0.8rem;">[ REPRESENTING BRANDS ]</div>
+            <div style="font-size: 1.1rem; font-weight: bold; letter-spacing: 0.2em; opacity: 0.8;">ÆON STUDIOS</div>
+            <div style="font-size: 1.1rem; font-weight: bold; letter-spacing: 0.2em; opacity: 0.8;">KINETIC CORP</div>
+            <div style="font-size: 1.1rem; font-weight: bold; letter-spacing: 0.2em; opacity: 0.8;">NEXUS FORM</div>
+            <div style="font-size: 1.1rem; font-weight: bold; letter-spacing: 0.2em; opacity: 0.8;">OBSIDIAN INC</div>
+          </div>
+
+          <!-- Column 4 (Awards Board) -->
+          <div class="bento-card col-4 font-mono" style="justify-content: flex-start; gap: 1.5rem;">
+            <div style="font-size: 0.8rem; opacity: 0.5;">08 // AWARDS_RECOGNITION</div>
+            <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.8rem;">
+              <div style="border-bottom: 1px solid var(--bg-grid-line); padding-bottom: 0.75rem;">
+                <span style="color: var(--accent-flash); font-weight: bold;">AWWWARDS</span><br>
+                SITE OF THE DAY x2
+              </div>
+              <div style="border-bottom: 1px solid var(--bg-grid-line); padding-bottom: 0.75rem;">
+                <span style="color: var(--accent-flash); font-weight: bold;">THE FWA</span><br>
+                SITE OF THE MONTH x1
+              </div>
+              <div>
+                <span style="color: var(--accent-flash); font-weight: bold;">CSS DESIGN AWARDS</span><br>
+                BEST UI/UX/INNOVATION x3
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 8 (Methodology Statement) -->
+          <div class="bento-card col-8 font-body" style="justify-content: center; gap: 1.5rem;">
+            <div class="font-mono" style="font-size: 0.8rem; opacity: 0.5;">09 // SYSTEM_METHODOLOGY</div>
+            <p style="font-size: 1.3rem; line-height: 1.5; color: var(--accent-muted);">
+              Our production pipeline integrates rigorous mathematical equations directly into custom GLSL shaders. By executing computed operations directly on the GPU, we achieve fluid visual aesthetics that render at <span style="color: var(--accent-primary);">60 frames per second</span> without compromising device CPU boundaries.
+            </p>
+          </div>
+
+        </section>
+
+        <!-- Section 3: Infinite Marquee & Lab Chronology -->
+        <section class="bento-grid" style="margin-top: -2rem;">
+          
+          <!-- Column 12: Infinite Text Ribbon Marquee -->
+          <div class="col-12 bento-card" style="padding: 0; min-height: auto; overflow: hidden; border-color: rgba(255, 62, 108, 0.15);">
+            <div class="marquee-wrap">
+              <div class="marquee-content font-display" style="font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -0.02em; display: flex; gap: 4rem;">
+                <span>KINETIC SYSTEMS • ORGANIC GEOMETRY • AETHER & FORM • WEBGL RENDER ES 3.0 • INERTIAL MOMENTUM •</span>
+                <span>KINETIC SYSTEMS • ORGANIC GEOMETRY • AETHER & FORM • WEBGL RENDER ES 3.0 • INERTIAL MOMENTUM •</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 6 (Chronology Item 1) -->
+          <div class="bento-card col-6 parallax-card" style="justify-content: flex-start; gap: 1.5rem; min-height: 280px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--bg-grid-line); padding-bottom: 0.75rem;">
+              <span class="font-mono" style="font-size: 0.8rem; opacity: 0.5;">CHRONO // 026.01</span>
+              <span class="font-mono" style="font-size: 0.75rem; color: var(--accent-flash);">RELEASED</span>
+            </div>
+            <h4 class="font-display" style="font-size: 1.8rem;">Vector Noise Drift</h4>
+            <p class="font-body" style="font-size: 0.9rem; opacity: 0.7; line-height: 1.6;">
+              Mapped 5,000 vertices inside a customized bounding area, applying dynamic multi-frequency waves to simulate floating particle clouds reactive to viewport coordinates.
+            </p>
+          </div>
+
+          <!-- Column 6 (Chronology Item 2) -->
+          <div class="bento-card col-6 parallax-card" style="justify-content: flex-start; gap: 1.5rem; min-height: 280px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--bg-grid-line); padding-bottom: 0.75rem;">
+              <span class="font-mono" style="font-size: 0.8rem; opacity: 0.5;">CHRONO // 026.02</span>
+              <span class="font-mono" style="font-size: 0.75rem; color: var(--accent-flash);">RELEASED</span>
+            </div>
+            <h4 class="font-display" style="font-size: 1.8rem;">Liquid Distortion WebGL</h4>
+            <p class="font-body" style="font-size: 0.9rem; opacity: 0.7; line-height: 1.6;">
+              Compiled customized vertex and fragment shaders mapping texture displacements relative to cursor entry angles. Resolves chromatic splits on mouse speed peaks.
+            </p>
+          </div>
+
+          <!-- Column 4 (Lab Details stats) -->
+          <div class="bento-card col-4 font-mono" style="justify-content: flex-start; gap: 1.5rem;">
+            <div style="font-size: 0.8rem; opacity: 0.5;">10 // SYSTEM_REPAIR</div>
+            <div style="font-size: 1.6rem; font-weight: bold; line-height: 1.2;">
+              COMPILE: 100%<br>
+              STABILITY: 99.8%<br>
+              COGNITIVE DEVIATION
+            </div>
+          </div>
+
+          <!-- Column 8 (Closing Statement / CTA) -->
+          <div class="bento-card col-8 font-body" style="justify-content: space-between; min-height: 240px;">
+            <div class="font-mono" style="font-size: 0.8rem; opacity: 0.5;">11 // SYSTEM_INTERFACE</div>
+            <h3 class="font-display" style="font-size: clamp(2.0rem, 3.5vw, 3rem); line-height: 1.1; letter-spacing: -0.03em;">
+              Let's intersect your ideas with our visual code.
+            </h3>
+            <div class="font-mono" style="font-size: 0.8rem; margin-top: 1rem;">
+              <a href="mailto:studio@aetherform.xyz" class="interactive-hover" data-magnetic style="color: var(--accent-flash);">LAUNCH INQUIRY PORTAL →</a>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Footer Grid -->
+        <footer class="bento-grid" style="grid-auto-rows: auto; padding: 0 0 4rem 0;">
+          <div class="col-12 bento-card" style="flex-direction: row; padding: 2rem 1.5rem; justify-content: space-between; align-items: center; border-color: rgba(122, 122, 130, 0.05); min-height: auto;">
+            <div class="font-mono" style="font-size: 0.8rem; opacity: 0.5;">© 2026 AETHER & FORM. UNDER LICENSING MIT.</div>
+            <div class="font-mono" style="font-size: 0.8rem; opacity: 0.5;">NOMINATED // AWWWARDS 2026</div>
+          </div>
+        </footer>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Page transition liquid distortion curtain -->
+  <div class="transition-curtain" id="transition-curtain"></div>
+
+  <!-- Main JavaScript Module Entry -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
